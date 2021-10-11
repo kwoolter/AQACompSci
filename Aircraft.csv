@@ -1,0 +1,4 @@
+Type,Running cost per seat per 100 km,Maximum flight range (km),Capacity if all seats are standard-class,Minimum number of first-class seats (if there are any)
+Medium narrow body,8,2650,180,8
+Large narrow body,7,5600,220,10
+Medium wide body,5,4050,406,14
