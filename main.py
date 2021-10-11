@@ -1,4 +1,3 @@
-import globals
 from functions import *
 from utils import *
 
@@ -9,20 +8,23 @@ def main():
     load_aircraft_data()
 
     # Pick the UK airport that you want to travel from
-    selection = pick("UK Airport", list(globals.AIRPORTS_UK.keys()))
-    from_airport = globals.AIRPORTS_UK[selection]
-    print(f"Travelling from {from_airport}.")
+    from_airport_code = pick("UK Airport", list(globals.AIRPORTS_UK.keys()))
+    from_airport_name = globals.AIRPORTS_UK[from_airport_code]
+    print(f"Travelling from {from_airport_name}.")
 
     # Pick the overseas Airport that you want to travel to
-    selection = pick("Overseas Airport", list(globals.AIRPORTS_OVERSEAS.keys()))
-    to_airport = globals.AIRPORTS_OVERSEAS[selection]
+    to_airport_code = pick("Overseas Airport", list(globals.AIRPORTS_OVERSEAS.keys()))
+    to_airport = globals.AIRPORTS_OVERSEAS[to_airport_code]
     print(f"Travelling to {to_airport[globals.OVERSEAS_AIRPORT_NAME]}.")
 
-    # Pick the type of Aircraft that will make teh flight
+    # Pick the type of Aircraft that will make the flight
     selection = pick("Aircraft Type", list(globals.AIRCRAFT.keys()))
     aircraft = globals.AIRCRAFT[selection]
 
-    print(f"\n\nTravelling from {from_airport} to {to_airport[globals.OVERSEAS_AIRPORT_NAME]} on a {aircraft[globals.AIRCRAFT_TYPE]} aircraft...")
+    # Summarise selections
+    print(f"\n\nTravelling from {from_airport_name} ({from_airport_code}) "
+          f"to {to_airport[globals.OVERSEAS_AIRPORT_NAME]} ({to_airport_code}) "
+          f"on a {aircraft[globals.AIRCRAFT_TYPE]} aircraft...")
 
 
 if __name__ == '__main__':
